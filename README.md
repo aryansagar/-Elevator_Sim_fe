@@ -1,29 +1,37 @@
-# Elevator System Simulation – Backend API
 
-A real-time elevator scheduling and simulation engine built using Node.js, Express, MongoDB, and WebSockets. The system assigns passenger requests using a cost-based scheduler with SCAN/LOOK movement efficiency and failsafe UX priority rules.
+# Elevator System Simulation – Frontend
 
----
-
-## 🧠 Scheduler Capabilities
-- Cost-based scoring: distance, direction alignment, direction flip penalty, and load penalty.
-- **Priority escalation** for any request waiting **> 30 seconds** (aging mechanism).
-- **Morning rush bias** for Lobby (Floor 0) → Upper floor traffic between **8:30–10:30 AM**.
-- **Idle elevator pre-positioning** near predicted high-traffic floors.
-- Hard limits on load to prevent **overcrowding dominance**.
-- Guarantee of eventual pickup to avoid starvation.
+A web interface that visualizes real-time elevator movement across floors and allows interactive control over system parameters. The UI syncs continuously with the backend using WebSockets.
 
 ---
 
 ## 📋 Prerequisites
-- **Node.js 18+**
-- **MongoDB 5+**
+- **Node.js 16+**
+- Backend API running on **4000**
 - **npm** or **yarn**
 
 ---
 
-## ⚙️ Installation & Setup
+## 🎨 Features
+- Live elevator positions and direction indicators (↑, ↓, idle).
+- Real-time display of door states and passenger count per elevator.
+- External floor controls (Up/Down request buttons per floor).
+- Main simulation controls:
+  - Start / Stop / Reset
+  - Elevator count (n: **1–20**)
+  - Floors (k: **2–50**)
+  - Speed (**1×, 2×, 5×**)
+  - Request frequency slider
+- Live performance panel showing:
+  - Avg Wait Time, Max Wait Time
+  - Avg Travel Time, Completed & Active Requests
+  - Elevator utilization %
+
+---
+
+## ⚙️ Installation & Start
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/aryansagar/elevator_sim_be.git
-cd elevator_sim_be
+git clone https://github.com/aryansagar/-Elevator_Sim_fe.git
+cd -Elevator_Sim_fe
