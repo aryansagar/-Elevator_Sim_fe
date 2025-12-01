@@ -8,7 +8,7 @@ class SocketService {
   }
 
   connect() {
-    this.socket = io('http://localhost:4000');
+    this.socket = io('https://elevator-sim-be.onrender.com');
 
     this.socket.on('connect', () => {
       console.log('Connected to server');
