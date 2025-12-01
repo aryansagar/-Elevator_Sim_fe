@@ -25,7 +25,7 @@ const ControlPanel = () => {
 
   const handleInitialize = async () => {
     try {
-      const response = await fetch('http://localhost:4000/api/simulation/initialize', {
+      const response = await fetch('https://elevator-sim-be.onrender.com/api/simulation/initialize', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ numElevators, numFloors })
@@ -41,7 +41,7 @@ const ControlPanel = () => {
 
   const handleStart = async () => {
     try {
-      await fetch('http://localhost:4000/api/simulation/start', { method: 'POST' });
+      await fetch('https://elevator-sim-be.onrender.com/api/simulation/start', { method: 'POST' });
       dispatch(setRunning(true));
     } catch (error) {
       console.error('Failed to start simulation:', error);
@@ -50,7 +50,7 @@ const ControlPanel = () => {
 
   const handleStop = async () => {
     try {
-      await fetch('http://localhost:4000/api/simulation/stop', { method: 'POST' });
+      await fetch('https://elevator-sim-be.onrender.com/api/simulation/stop', { method: 'POST' });
       dispatch(setRunning(false));
     } catch (error) {
       console.error('Failed to stop simulation:', error);
@@ -61,7 +61,7 @@ const ControlPanel = () => {
     const speed = newValue;
     dispatch(setSimulationSpeed(speed));
     try {
-      await fetch('http://localhost:4000/api/simulation/speed', {
+      await fetch('https://elevator-sim-be.onrender.com/api/simulation/speed', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ speed })
@@ -79,7 +79,7 @@ const ControlPanel = () => {
     } while (destinationFloor === originFloor);
 
     try {
-      await fetch('http://localhost:4000/api/requests', {
+      await fetch('https://elevator-sim-be.onrender.com/api/requests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ originFloor, destinationFloor })

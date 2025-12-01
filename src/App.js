@@ -26,7 +26,7 @@ const AppContent = () => {
       Math.max(0, floor - 1 - Math.floor(Math.random() * 3));
 
     try {
-      await fetch('http://localhost:4000/api/requests', {
+      await fetch('https://elevator-sim-be.onrender.com/api/requests', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
